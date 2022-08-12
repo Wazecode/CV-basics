@@ -67,3 +67,45 @@ pt.savefig('images/page_hist.png')
 
 #+caption: this is the histogram of the image
 [[./images/page_hist.png]]
+
+*** Binarization (Thresholding)
+- Binarization is the process of converting a pixel image to a binary image
+  ie, an image with just two colors black and white.
+- This is done by first defining a threshold for the image and
+  then every pixel below the threshold value is 0(Black) and everything above is 255(White)
+
+- Now we will take the picture given above and apply this technique for two thresholds
+  130 and 155
+#+begin_src python :results output
+import cv2 as cv
+import numpy as np
+
+#read image as grayscale
+img = cv.imread('images/page.jpg',cv.IMREAD_GRAYSCALE)
+
+#Get image dimensions
+h, w = img.shape
+
+#create two images
+img_binary_130 = np.zeros((h,w),dtype=np.uint8)
+img_binary_155 = np.zeros((h,w),dtype=np.uint8)
+
+#Now we will calulate two binary images
+:for i in range(h-1):
+    for j in range(w-1):
+        if img[i,j] > 130:
+            img_binary_130[i,j] = 233
+
+:for i in range(h-1):
+    for j in range(w-1):
+        if img[i,j] > 155:
+            img_binary_155[i,j] = 233
+
+cv.imwrite('images/page_binary_155.png', img_binary_155)
+
+#+end
+_src
+
+#+RESULTS:
+[[./images/page_binary_130.png]]
+[[./images/page_binary_155.png55]]
