@@ -52,11 +52,14 @@ img = cv.imread('images/page.jpg',0)
 
 # find frequency of pixels in range 0-255
 histr = cv.calcHist([img],[0],None,[256],[0,256])
-pt.plot(histr)
-pt.savefig('images/page_hist.png')
-return 'images/page_hist.png'
 
+#plot the graph
+pt.plot(histr)
+
+#Save it as an image
+pt.savefig('images/page_hist.png')
+#instead of saving as an image you can directly see the picture after the execution of the program using pt.show()
 #+end_src
 
-#+RESULTS:
-[[file:images/page_hist.png]]
+#+caption: this is the histogram of the image
+[[./images/page_hist.png]]
