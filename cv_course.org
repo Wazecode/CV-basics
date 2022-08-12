@@ -1,0 +1,62 @@
+#+title:  CV course
+#+description: This is my notes for my Computer Vision course on nptel
+#+author: Shuwais Soudager
+
+* Contents of this course
+| Topic                                           | Week | Status |
+|-------------------------------------------------+------+--------|
+| Image Processing                                |    1 |        |
+| Image Transform                                 |    1 |        |
+| Projective Geometry                             |    2 |        |
+| Projective Transformation                       |    2 |        |
+| Homography                                      |    2 |        |
+| Camera Geometry                                 |    3 |        |
+| Stereo Geometry                                 |  4-5 |        |
+| Feature Detection and Description               |    6 |        |
+| Feature Matching and model fitting              |    7 |        |
+| Color Fundementals and processing               |    8 |        |
+| Range Image Processing                          |    9 |        |
+| Clustering and classification                   |   10 |        |
+| Dimensional reduction and Sparse Representation |   11 |        |
+| Deep Neural Architecture and Application        |   12 |        |
+|-------------------------------------------------+------+--------|
+
+* Image Processing
+    - What is image?
+      Image is an 2d array of pixels and pixels is just an integer(if black and white pic) or an array of integers(if color pic).
+
+    - Image File
+      The image file is divided into three parts:-
+      1. Header : Contains meta data of the image file like height, width, compression format(ex: png,bmp,..)
+      2. Streams of pixels that makes the image
+      3. EOF: End Of File
+
+** A few concepts and operations
+*** Image Histogram
+    + An image histogram is a type of histogram that acts as a graphical representation of the tonal distribution in a digital image.
+
+    + Now we will take given image below and make a histogram for the distribution of pixel values. We will be using python with opencv and matplotlib.
+#+caption: a picture of a page
+#+name: page
+[[./images/page.jpg]]
+
+#+begin_src python :results file
+#importing necessary libraries
+import cv2 as cv
+import matplotlib, numpy
+matplotlib.use('Agg')
+from matplotlib import pyplot as pt
+
+#read image
+img = cv.imread('images/page.jpg',0)
+
+# find frequency of pixels in range 0-255
+histr = cv.calcHist([img],[0],None,[256],[0,256])
+pt.plot(histr)
+pt.savefig('images/page_hist.png')
+return 'images/page_hist.png'
+
+#+end_src
+
+#+RESULTS:
+[[file:images/page_hist.png]]
