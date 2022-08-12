@@ -40,10 +40,10 @@
 #+name: page
 [[./images/page.jpg]]
 
-#+begin_src python :results file
+#+begin_src python
 #importing necessary libraries
 import cv2 as cv
-import matplotlib, numpy
+import matplotlib
 matplotlib.use('Agg')
 from matplotlib import pyplot as pt
 
@@ -60,6 +60,10 @@ pt.plot(histr)
 pt.savefig('images/page_hist.png')
 #instead of saving as an image you can directly see the picture after the execution of the program using pt.show()
 #+end_src
+
+#+RESULTS:
+: None
+
 
 #+caption: this is the histogram of the image
 [[./images/page_hist.png]]
