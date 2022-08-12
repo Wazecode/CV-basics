@@ -106,6 +106,7 @@ cv.imwrite('images/page_binary_155.png', img_binary_155)
 #+end_src
 
 #+RESULTS:
+
 **** Image with 130 threshold
 
 [[./images/page_binary_130.png]]
