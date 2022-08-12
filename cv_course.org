@@ -91,21 +91,22 @@ img_binary_130 = np.zeros((h,w),dtype=np.uint8)
 img_binary_155 = np.zeros((h,w),dtype=np.uint8)
 
 #Now we will calulate two binary images
-:for i in range(h-1):
-    for j in range(w-1):
+#First method
+for i in range(h):
+    for j in range(w):
         if img[i,j] > 130:
-            img_binary_130[i,j] = 233
+            img_binary_130[i,j] = 255
 
-:for i in range(h-1):
-    for j in range(w-1):
-        if img[i,j] > 155:
-            img_binary_155[i,j] = 233
+#Second method
+ret, img_binary_155 = cv.threshold(img, 155, 255, cv.THRESH_BINARY)
 
+cv.imwrite('images/page_binary_130.png', img_binary_130)
 cv.imwrite('images/page_binary_155.png', img_binary_155)
 
-#+end
-_src
+#+end_src
 
 #+RESULTS:
+
 [[./images/page_binary_130.png]]
-[[./images/page_binary_155.png55]]
+
+[[./images/page_binary_155.png]]
