@@ -114,3 +114,23 @@ cv.imwrite('images/page_binary_155.png', img_binary_155)
 **** Image with 155 threshold
 
 [[./images/page_binary_155.png]]
+
+Can we automate the process to get the ideal binarized image?
+
+*** Automate Binarization
+- This can be done in the opencv by using otsu method
+#+begin_src python :results output
+import cv2 as cv
+import numpy as np
+
+img = cv.imread('images/page.jpg',cv.IMREAD_GRAYSCALE)
+
+ret , img_bin_otsu = cv.threshold(img, 0, 255, cv.THRESH_OTSU)
+
+print('The otsu threshold value is ', ret)
+cv.imwrite('images/page_otsu.png', img_bin_otsu)
+#+end_src
+
+#+RESULTS:
+: The otsu threshold value is  126.0
+[[./images/page_otsu.png]]
