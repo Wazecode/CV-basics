@@ -147,3 +147,8 @@ In this model the pixels are divided into two groups.
 And we consider the histogram of the image to be a bimodel histogram.
 A bimodel histogram is a histogram with two peaks.
 And also we assume that most pixels around one peak is foreground and the other is background.
+
+- Let the foreground pixels be /w1/
+  and the background pixels be /w2/
+
+- We need to find the probability of /w1/ given /x/ ie, /p(w1|x)/
