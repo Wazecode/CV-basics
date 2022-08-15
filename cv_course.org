@@ -92,12 +92,14 @@ img_binary_155 = np.zeros((h,w),dtype=np.uint8)
 
 #Now we will calulate two binary images
 #First method
+#Doing the it from scratch
 for i in range(h):
     for j in range(w):
         if img[i,j] > 130:
             img_binary_130[i,j] = 255
 
 #Second method
+#Doing it using opencv built in function
 ret, img_binary_155 = cv.threshold(img, 155, 255, cv.THRESH_BINARY)
 
 cv.imwrite('images/page_binary_130.png', img_binary_130)
@@ -133,4 +135,15 @@ cv.imwrite('images/page_otsu.png', img_bin_otsu)
 
 #+RESULTS:
 : The otsu threshold value is  126.0
+
 [[./images/page_otsu.png]]
+
+*** Doing from scratch
+
+**** Bayesian Classification of foreground and background pixels
+- In this model the pixels are divided into two groups.
+  1. Foreground pixels
+  2. Background pixels
+- And we consider the histogram of the image to be a bimodel histogram.
+- A bimodel histogram is a histogram with two peaks.
+- And also we assume that most pixels around one peak is foreground and the other is background.
