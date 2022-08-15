@@ -141,9 +141,9 @@ cv.imwrite('images/page_otsu.png', img_bin_otsu)
 *** Doing from scratch
 
 **** Bayesian Classification of foreground and background pixels
-- In this model the pixels are divided into two groups.
-  1. Foreground pixels
-  2. Background pixels
-- And we consider the histogram of the image to be a bimodel histogram.
-- A bimodel histogram is a histogram with two peaks.
-- And also we assume that most pixels around one peak is foreground and the other is background.
+In this model the pixels are divided into two groups.
+ 1. Foreground pixels
+ 2. Background pixels
+And we consider the histogram of the image to be a bimodel histogram.
+A bimodel histogram is a histogram with two peaks.
+And also we assume that most pixels around one peak is foreground and the other is background.
